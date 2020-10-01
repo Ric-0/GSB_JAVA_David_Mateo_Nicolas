@@ -9,7 +9,7 @@ public class MedicamentDao {
 
 	
 	public static Medicament  rechercher(String medDepotLegal){
-		
+		//test
 		Medicament UnMedicament=null; 
 		
 		try{
