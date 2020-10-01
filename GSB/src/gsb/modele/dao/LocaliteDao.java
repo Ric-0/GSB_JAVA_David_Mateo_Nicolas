@@ -7,7 +7,7 @@ import gsb.modele.dao.ConnexionMySql;
 import gsb.modele.Localite;
 
 public class LocaliteDao {
-
+//rico test
 	
 	public static Localite rechercher(String codeLocalite){
 		
