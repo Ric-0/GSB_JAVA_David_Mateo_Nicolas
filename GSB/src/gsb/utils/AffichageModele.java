@@ -10,7 +10,7 @@ import gsb.modele.Visiteur;
 
 public class AffichageModele {
 
-	
+	//TEST 5000
 	public static void afficher(Localite UneLocalite){
 		
 		System.out.println("Le code postal : "+UneLocalite.getCodePostal());
