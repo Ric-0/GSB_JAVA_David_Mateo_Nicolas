@@ -1,5 +1,5 @@
 package gsb.modele;
-//refyguzdcsibuhiojkpezfzdgyscuihbj mateo
+
 public class Localite {
 
 	protected String codePostal;
