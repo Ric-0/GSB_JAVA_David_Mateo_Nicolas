@@ -3,7 +3,7 @@ public class Localite {
 
 	protected String codePostal;
 	protected String ville;
-	//test 2
+	//test 3
 	public Localite(String UnCodePostal,String UneVille){
 		
 		this.codePostal=UnCodePostal;
