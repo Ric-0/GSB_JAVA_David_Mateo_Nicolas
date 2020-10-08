@@ -1,10 +1,5 @@
 package gsb.tests;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import gsb.modele.Localite;
 import gsb.modele.Medecin;
 import gsb.modele.Medicament;
@@ -67,17 +62,8 @@ public class TestModeleDao {
 		
 		AffichageModele.afficher(VisiteDao.rechercher("v0001"));
 		System.out.println("----------------------------------------------");
-		String DateStr1="17/03/2001 15:55:59";
-		DateFormat df1=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		Date date1=null;
-		try{
-			date1=df1.parse(DateStr1);
-		}catch(ParseException e){
-			
-			e.printStackTrace();
-		}
 		
-		Visite UneVisite=new Visite("v0024",date1,"RAS",UnMedecin,VisiteurDao.rechercher("a131"));
+		Visite UneVisite=new Visite("v0024","08/10/2020","RAS",UnMedecin,VisiteurDao.rechercher("a131"));
 		VisiteDao.creer(UneVisite);
 		
 		System.out.println("----------------------------------------------");
@@ -88,18 +74,7 @@ public class TestModeleDao {
 		
 		AffichageModele.afficher(VisiteurDao.rechercher("a131"));
 		
-		
-		String DateStr2="17/03/2001 15:30:00";
-		DateFormat df2=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		Date date2=null;
-		try{
-			date2=df2.parse(DateStr2);
-		}catch(ParseException e){
-			
-			e.printStackTrace();
-		}
-		
-		Visiteur UnVisiteur=new Visiteur("PL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",uneLocalite,"02-97-17-38-16",date2,300,"uo863","test");
+		Visiteur UnVisiteur=new Visiteur("PL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",uneLocalite,"02-97-17-38-16","04/10/2020",300,"uo863","test");
 		
 		System.out.println("----------------------------------------------");
 		

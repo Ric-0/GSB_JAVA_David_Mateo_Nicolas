@@ -1,10 +1,7 @@
 package gsb.modele.dao;
 
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
-
 import gsb.modele.Medecin;
 import gsb.modele.Visite;
 import gsb.modele.Visiteur;
@@ -20,10 +17,8 @@ public class VisiteDao {
 			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM visite WHERE REFERENCE='"+reference+"'");
 			
 			if(ResultatReq.next()){
-				
-				Date date=new Date(ResultatReq.getTimestamp(2).getTime());
-				//String UneReference,Date UneDate,String UnCommentaire, Medecin UnMedecin, Visiteur UnVisiteur
-				UneVisite= new Visite(ResultatReq.getString(1),date,ResultatReq.getString(3),MedecinDao.rechercher(ResultatReq.getString(5)),VisiteurDao.rechercher(ResultatReq.getString(4)));
+
+				UneVisite= new Visite(ResultatReq.getString(1),ResultatReq.getString(2),ResultatReq.getString(3),MedecinDao.rechercher(ResultatReq.getString(5)),VisiteurDao.rechercher(ResultatReq.getString(4)));
 				
 			}
 			
@@ -41,10 +36,7 @@ public class VisiteDao {
 	public static int creer(Visite uneVisite){
 		
 	     String reference=uneVisite.getReference();
-		 Date date=uneVisite.getDate();
-		 
-		 Timestamp ts= new Timestamp(date.getTime());
-		 
+		 String date=uneVisite.getDate();
 		 String commentaire=uneVisite.getCommentaire();
 		 Medecin unMedecin=uneVisite.getUnMedecin();
 		 String codeMed=unMedecin.getCodeMed();
@@ -54,13 +46,13 @@ public class VisiteDao {
 		
 		try{
 			
-			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO visite VALUES('"+reference+"','"+ts+"','"+commentaire+"','"+matricule+"','"+codeMed+"')");
+			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO visite VALUES('"+reference+"','"+date+"','"+commentaire+"','"+matricule+"','"+codeMed+"')");
 			ConnexionMySql.fermerConnexionBd();
 			
 		}catch(Exception e){
 			
 			
-			System.out.println("Erreur lors de la requête : INSERRT INTO visite VALUES('"+reference+"','"+ts+"','"+commentaire+"','"+matricule+"','"+codeMed+"')" );
+			System.out.println("Erreur lors de la requête : INSERRT INTO visite VALUES('"+reference+"','"+date+"','"+commentaire+"','"+matricule+"','"+codeMed+"')" );
 			
 		}
 		
@@ -77,10 +69,8 @@ public class VisiteDao {
 			
 			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM visite");
 			while(ResultatReq.next()){
-				
-				Date date=new Date(ResultatReq.getTimestamp(2).getTime());
-				//String UneReference,Date UneDate,String UnCommentaire, Medecin UnMedecin, Visiteur UnVisiteur
-			    Visite	UneVisite= new Visite(ResultatReq.getString(1),date,ResultatReq.getString(3),MedecinDao.rechercher(ResultatReq.getString(5)),VisiteurDao.rechercher(ResultatReq.getString(4)));
+
+			    Visite	UneVisite= new Visite(ResultatReq.getString(1),ResultatReq.getString(2),ResultatReq.getString(3),MedecinDao.rechercher(ResultatReq.getString(5)),VisiteurDao.rechercher(ResultatReq.getString(4)));
 				LesVisites.add(UneVisite);
 			}
 			

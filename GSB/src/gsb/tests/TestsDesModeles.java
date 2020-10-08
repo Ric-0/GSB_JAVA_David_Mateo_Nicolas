@@ -1,12 +1,5 @@
 package gsb.tests;
 
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import gsb.modele.Localite;
 import gsb.modele.Medecin;
 import gsb.modele.Medicament;
@@ -33,17 +26,7 @@ public class TestsDesModeles {
 		AffichageModele.afficher(UnMedecin);
 		System.out.println("=====================================");
 		
-		String dateString ="23/04/2005 23:11:59";
-		DateFormat df=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		Date date=null;
-		try {
-			date = df.parse(dateString);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Visiteur UnVisiteur=new Visiteur("PLL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",LocaliteVisiteur,"02-97-17-38-16",date,300,"uo863","test");
+		Visiteur UnVisiteur=new Visiteur("PLL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",LocaliteVisiteur,"02-97-17-38-16","10/09/2019",300,"uo863","test");
 		AffichageModele.afficher(UnVisiteur);
 		System.out.println("=====================================");
 		
@@ -51,7 +34,7 @@ public class TestsDesModeles {
 		AffichageModele.afficher(UnMedicament);
 		System.out.println("=====================================");
 		
-		Visite UneVisite=new Visite("JPPLL56",date,"RAS",UnMedecin,UnVisiteur);
+		Visite UneVisite=new Visite("JPPLL56","01/01/2020","RAS",UnMedecin,UnVisiteur);
 		AffichageModele.afficher(UneVisite);
 		System.out.println("=====================================");
 		

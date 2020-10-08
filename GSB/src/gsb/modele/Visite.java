@@ -1,17 +1,15 @@
 package gsb.modele;
 
-import java.util.Date;
-
 public class Visite {
 
 	protected String reference;
-	protected Date date;
+	protected String date;
 	protected String commentaire;
 	protected Medecin unMedecin;
 	protected Visiteur unVisiteur;
 
 	
-	public Visite(String UneReference,Date UneDate,String UnCommentaire, Medecin UnMedecin, Visiteur UnVisiteur){
+	public Visite(String UneReference,String UneDate,String UnCommentaire, Medecin UnMedecin, Visiteur UnVisiteur){
 		
 		this.reference = UneReference;
 		this.date =UneDate;
@@ -32,13 +30,13 @@ public class Visite {
 	}
 
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(String String) {
+		this.date = String;
 	}
 
 

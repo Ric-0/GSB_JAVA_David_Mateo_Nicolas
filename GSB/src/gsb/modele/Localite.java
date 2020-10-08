@@ -1,9 +1,11 @@
 package gsb.modele;
+
 public class Localite {
 
 	protected String codePostal;
 	protected String ville;
-	//test 4
+	
+	// test
 	public Localite(String UnCodePostal,String UneVille){
 		
 		this.codePostal=UnCodePostal;
