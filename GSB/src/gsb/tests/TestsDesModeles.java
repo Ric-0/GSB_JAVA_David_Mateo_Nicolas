@@ -26,7 +26,7 @@ public class TestsDesModeles {
 		AffichageModele.afficher(UnMedecin);
 		System.out.println("=====================================");
 		
-		Visiteur UnVisiteur=new Visiteur("PLL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",LocaliteVisiteur,"02-97-17-38-16","10/09/2019",300,"uo863","test");
+		Visiteur UnVisiteur=new Visiteur("PLL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",LocaliteVisiteur,"02-97-17-38-16","10/09/2019","uo863");
 		AffichageModele.afficher(UnVisiteur);
 		System.out.println("=====================================");
 		

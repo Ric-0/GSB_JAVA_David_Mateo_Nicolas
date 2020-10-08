@@ -17,7 +17,7 @@ public class TestModeleDao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(LocaliteDao.rechercher("13012"));
+		AffichageModele.afficher(LocaliteDao.rechercher("13012")); 
 		
 		System.out.println("----------------------------------------------");
 		
@@ -74,7 +74,7 @@ public class TestModeleDao {
 		
 		AffichageModele.afficher(VisiteurDao.rechercher("a131"));
 		
-		Visiteur UnVisiteur=new Visiteur("PL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",uneLocalite,"02-97-17-38-16","04/10/2020",300,"uo863","test");
+		Visiteur UnVisiteur=new Visiteur("PL56","Lego","Philipe","plego","cbhjds","17 rue j-f de surville",uneLocalite,"04/10/2020","uo83","test");
 		
 		System.out.println("----------------------------------------------");
 		
@@ -82,7 +82,7 @@ public class TestModeleDao {
 		
 		System.out.println("----------------------------------------------");
 		
-		System.out.println(VisiteurDao.retournerLesVisiteurs());
+		System.out.println("test"+VisiteurDao.retournerLesVisiteurs());
 		
 		
 	}

@@ -68,9 +68,7 @@ public class AffichageModele {
 		System.out.println("Le mot de passe du visiteur : "+UnVisiteur.getMdp());
 		System.out.println("L'adresse du visiteur : "+UnVisiteur.getAdresse());
 		System.out.println("La localite du visiteur : "+UnVisiteur.getUneLocalite().getVille());
-		System.out.println("Le numéro de téléphone du visiteur : "+UnVisiteur.getTelephone());
 		System.out.println("La date d'entrée : "+UnVisiteur.getDateEntree());
-		System.out.println("La prime : "+UnVisiteur.getPrime());
 		System.out.println("Le code d'unite : "+UnVisiteur.getCodeUnite());
 		System.out.println("Le nom de l'Unite : "+UnVisiteur.getNomUnite());
 		

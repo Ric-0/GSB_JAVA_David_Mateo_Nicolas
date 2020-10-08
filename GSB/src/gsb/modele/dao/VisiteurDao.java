@@ -21,7 +21,7 @@ public class VisiteurDao {
 			
 			if(ResultatReq.next()){
 
-				UnVisiteur=new Visiteur(ResultatReq.getString(1),ResultatReq.getString(2),ResultatReq.getString(3),ResultatReq.getString(4),ResultatReq.getString(5),ResultatReq.getString(6),LocaliteDao.rechercher(ResultatReq.getString(7)),"",ResultatReq.getString(8),0,ResultatReq.getString(9),ResultatReq.getString(10));
+				UnVisiteur=new Visiteur(ResultatReq.getString(1),ResultatReq.getString(2),ResultatReq.getString(3),ResultatReq.getString(4),ResultatReq.getString(5),ResultatReq.getString(6),LocaliteDao.rechercher(ResultatReq.getString(7)),"",ResultatReq.getString(8),ResultatReq.getString(9));
 				
 			}
 			
@@ -84,7 +84,7 @@ public class VisiteurDao {
 			
 			while(ResultatReq.next()){
 				
-			    Visiteur UnVisiteur=new Visiteur(ResultatReq.getString(1),ResultatReq.getString(2),ResultatReq.getString(3),ResultatReq.getString(4),ResultatReq.getString(5),ResultatReq.getString(6),LocaliteDao.rechercher(ResultatReq.getString(7)),"",ResultatReq.getString(8),0,ResultatReq.getString(9),ResultatReq.getString(10));
+			    Visiteur UnVisiteur=new Visiteur(ResultatReq.getString(1),ResultatReq.getString(2),ResultatReq.getString(3),ResultatReq.getString(4),ResultatReq.getString(5),ResultatReq.getString(6),LocaliteDao.rechercher(ResultatReq.getString(7)),"",ResultatReq.getString(8),ResultatReq.getString(9));
 				LesVisiteurs.add(UnVisiteur);
 				
 			}
