@@ -15,7 +15,7 @@ public class LocaliteDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM localite WHERE CODEPOSTAL='"+codeLocalite+"'");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM LOCALITE WHERE CODEPOSTAL='"+codeLocalite+"'");
 			
 			if(ResultatReq.next()){
 			
@@ -24,7 +24,7 @@ public class LocaliteDao {
 			}
 		}catch(Exception e){
 			
-			System.out.println("Erreur de requête : SELECT * FROM localite WHERE CODEPOSTAL='"+codeLocalite+"'");
+			System.out.println("Erreur de requête : SELECT * FROM LOCALITE WHERE CODEPOSTAL='"+codeLocalite+"'");
 			
 		}
 		
@@ -42,13 +42,13 @@ public class LocaliteDao {
 		
 		try{
 			
-		 ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO localite VALUES('"+codePostal+"','"+ville+"')");
+		 ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO LOCALITE VALUES('"+codePostal+"','"+ville+"')");
 		ConnexionMySql.fermerConnexionBd();	
 			
 		}catch(Exception e){
 			
 			
-			System.out.println("Erreur lors de l'insertion : INSERT INTO localite VALUES('"+codePostal+"','"+ville+"')");
+			System.out.println("Erreur lors de l'insertion : INSERT INTO LOCALITE VALUES('"+codePostal+"','"+ville+"')");
 			
 		}
 		
@@ -63,7 +63,7 @@ public class LocaliteDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM localite");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM LOCALITE");
 			
 			while(ResultatReq.next()){
 				
@@ -76,7 +76,7 @@ public class LocaliteDao {
 		}catch(Exception e){
 			
 			
-			System.out.println("Erreur lors de l'insertion : SELECT * FROM localite");
+			System.out.println("Erreur lors de l'insertion : SELECT * FROM LOCALITE");
 		}
 		
 		return LesLocalites;

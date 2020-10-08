@@ -14,7 +14,7 @@ public class MedecinDao {
 		
 		try{
 				
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM medecin WHERE CODEMED='"+codemed+"'");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM MEDECIN WHERE CODEMED='"+codemed+"'");
 			
 			if(ResultatReq.next()){
 				
@@ -25,7 +25,7 @@ public class MedecinDao {
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de la requête :SELECT * FROM medecin WHERE CODEMED='"+codemed+"'");
+			System.out.println("Erreur lors de la requête :SELECT * FROM MEDECIN WHERE CODEMED='"+codemed+"'");
 			
 		}
 		
@@ -49,12 +49,12 @@ public class MedecinDao {
 		 
 		 try{
 			 
-			 ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO medecin VALUES('"+codeMed+"','"+nom+"','"+prenom+"','"+adresse+"','"+unCodePostal+"','"+telephone+"','"+potentiel+"','"+specialite+"')");
+			 ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO MEDECIN VALUES('"+codeMed+"','"+nom+"','"+prenom+"','"+adresse+"','"+unCodePostal+"','"+telephone+"','"+potentiel+"','"+specialite+"')");
 			 ConnexionMySql.fermerConnexionBd();
 			 
 		 }catch(Exception e){
 			 
-			 System.out.println("Erreur lors de l'insertion : INSERT INTO medecin VALUES('"+codeMed+"','"+nom+"','"+prenom+"','"+adresse+"','"+unCodePostal+"','"+telephone+"','"+potentiel+"','"+specialite+"')");
+			 System.out.println("Erreur lors de l'insertion : INSERT INTO MEDECIN VALUES('"+codeMed+"','"+nom+"','"+prenom+"','"+adresse+"','"+unCodePostal+"','"+telephone+"','"+potentiel+"','"+specialite+"')");
 			 
 		 }
 		
@@ -71,7 +71,7 @@ public class MedecinDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM medecin");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM MEDECIN");
 			
 			while(ResultatReq.next()){
 				
@@ -81,7 +81,7 @@ public class MedecinDao {
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de la requête : SELECT * FROM medecin");
+			System.out.println("Erreur lors de la requête : SELECT * FROM MEDECIN");
 			
 		}
 		

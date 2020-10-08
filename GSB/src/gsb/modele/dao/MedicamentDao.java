@@ -14,7 +14,7 @@ public class MedicamentDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM medicament WHERE MED_DEPOTLEGAL='"+medDepotLegal+"'");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM MEDICAMENT WHERE MED_DEPOTLEGAL='"+medDepotLegal+"'");
 			
 			if(ResultatReq.next()){
 				
@@ -26,7 +26,7 @@ public class MedicamentDao {
 		}catch(Exception e){
 			
 			
-			System.out.println("Erreur lors de la requête : SELECT * FROM medicament WHERE MED_DEPOTLEGAL='"+medDepotLegal+"'");
+			System.out.println("Erreur lors de la requête : SELECT * FROM MEDICAMENT WHERE MED_DEPOTLEGAL='"+medDepotLegal+"'");
 			
 		}
 		
@@ -51,12 +51,12 @@ public class MedicamentDao {
 		
 		try{
 			
-			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO medicament VALUES('"+depotLegal+"','"+nomCommercial+"','"+composition+"','"+effets+"','"+contreIndication+"',"+prixEchantillon+",'"+codeFamille+"','"+libellefamille+"')");
+			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO MEDICAMENT VALUES('"+depotLegal+"','"+nomCommercial+"','"+composition+"','"+effets+"','"+contreIndication+"',"+prixEchantillon+",'"+codeFamille+"','"+libellefamille+"')");
 			ConnexionMySql.fermerConnexionBd();
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de l'insertion : INSERT INTO medicament VALUES('"+depotLegal+"','"+nomCommercial+"','"+composition+"','"+effets+"','"+contreIndication+"',"+prixEchantillon+",'"+codeFamille+"','"+libellefamille+"')");
+			System.out.println("Erreur lors de l'insertion : INSERT INTO MEDICAMENT VALUES('"+depotLegal+"','"+nomCommercial+"','"+composition+"','"+effets+"','"+contreIndication+"',"+prixEchantillon+",'"+codeFamille+"','"+libellefamille+"')");
 			
 		}
 		
@@ -72,7 +72,7 @@ public class MedicamentDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM medicament");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM MEDICAMENT");
 			
 			while(ResultatReq.next()){
 				
@@ -84,7 +84,7 @@ public class MedicamentDao {
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de la requête : SELECT * FROM medicament ");
+			System.out.println("Erreur lors de la requête : SELECT * FROM MEDICAMENT ");
 			
 		}
 		

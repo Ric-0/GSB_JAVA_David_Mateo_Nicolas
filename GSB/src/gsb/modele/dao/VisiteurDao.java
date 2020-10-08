@@ -17,7 +17,7 @@ public class VisiteurDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM visiteur WHERE MATRICULE='"+matricule+"'");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM VISITEUR WHERE MATRICULE='"+matricule+"'");
 			
 			if(ResultatReq.next()){
 
@@ -28,7 +28,7 @@ public class VisiteurDao {
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de la requête : SELECT * FROM visiteur WHERE MATRICULE='"+matricule+"'");
+			System.out.println("Erreur lors de la requête : SELECT * FROM VISITEUR WHERE MATRICULE='"+matricule+"'");
 			
 		}
 		
@@ -59,13 +59,13 @@ public class VisiteurDao {
 		 
 		 try{
 			 
-			 ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO visiteur VALUES('"+matricule+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+codePostal+"','"+dateEntree+"','"+codeUnite+"','"+nomUnite+"')");
+			 ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO VISITEUR VALUES('"+matricule+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+codePostal+"','"+dateEntree+"','"+codeUnite+"','"+nomUnite+"')");
 			 ConnexionMySql.fermerConnexionBd();
 			 
 		 }catch(Exception e){
 			 
 			 
-			 System.out.println("Erreur lors de l'insertion : INSERT INTO visiteur VALUES('"+matricule+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+codePostal+"','"+dateEntree+"','"+codeUnite+"','"+nomUnite+"')");
+			 System.out.println("Erreur lors de l'insertion : INSERT INTO VISITEUR VALUES('"+matricule+"','"+nom+"','"+prenom+"','"+login+"','"+mdp+"','"+adresse+"','"+codePostal+"','"+dateEntree+"','"+codeUnite+"','"+nomUnite+"')");
 			 
 		 }
 		
@@ -80,7 +80,7 @@ public class VisiteurDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM visiteur");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM VISITEUR");
 			
 			while(ResultatReq.next()){
 				
@@ -91,7 +91,7 @@ public class VisiteurDao {
 			
 		}catch(Exception e){
 			
-			System.out.println(" Erreur lors de la requête : SELECT * FROM visiteur");
+			System.out.println(" Erreur lors de la requête : SELECT * FROM VISITEUR");
 			
 			
 		}

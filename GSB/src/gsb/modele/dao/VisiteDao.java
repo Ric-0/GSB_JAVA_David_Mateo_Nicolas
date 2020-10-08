@@ -14,7 +14,7 @@ public class VisiteDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM visite WHERE REFERENCE='"+reference+"'");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM VISITE WHERE REFERENCE='"+reference+"'");
 			
 			if(ResultatReq.next()){
 
@@ -24,7 +24,7 @@ public class VisiteDao {
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de la requête SELECT * FROM visite WHERE REFERENCE='"+reference+"'");
+			System.out.println("Erreur lors de la requête SELECT * FROM VISITE WHERE REFERENCE='"+reference+"'");
 			
 			
 		}
@@ -46,13 +46,13 @@ public class VisiteDao {
 		
 		try{
 			
-			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO visite VALUES('"+reference+"','"+date+"','"+commentaire+"','"+matricule+"','"+codeMed+"')");
+			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO VISITE VALUES('"+reference+"','"+date+"','"+commentaire+"','"+matricule+"','"+codeMed+"')");
 			ConnexionMySql.fermerConnexionBd();
 			
 		}catch(Exception e){
 			
 			
-			System.out.println("Erreur lors de la requête : INSERRT INTO visite VALUES('"+reference+"','"+date+"','"+commentaire+"','"+matricule+"','"+codeMed+"')" );
+			System.out.println("Erreur lors de la requête : INSERRT INTO VISITE VALUES('"+reference+"','"+date+"','"+commentaire+"','"+matricule+"','"+codeMed+"')" );
 			
 		}
 		
@@ -67,7 +67,7 @@ public class VisiteDao {
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM visite");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM VISITE");
 			while(ResultatReq.next()){
 
 			    Visite	UneVisite= new Visite(ResultatReq.getString(1),ResultatReq.getString(2),ResultatReq.getString(3),MedecinDao.rechercher(ResultatReq.getString(5)),VisiteurDao.rechercher(ResultatReq.getString(4)));
@@ -76,7 +76,7 @@ public class VisiteDao {
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de la requête : SELECT * FROM visite");
+			System.out.println("Erreur lors de la requête : SELECT * FROM VISITE");
 			
 			
 		}
