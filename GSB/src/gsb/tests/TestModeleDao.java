@@ -3,6 +3,7 @@ package gsb.tests;
 import gsb.modele.Localite;
 import gsb.modele.Medecin;
 import gsb.modele.Medicament;
+import gsb.modele.Stocker;
 import gsb.modele.Visite;
 import gsb.modele.Visiteur;
 import gsb.modele.dao.LocaliteDao;
@@ -10,6 +11,7 @@ import gsb.modele.dao.MedecinDao;
 import gsb.modele.dao.MedicamentDao;
 import gsb.modele.dao.VisiteDao;
 import gsb.modele.dao.VisiteurDao;
+import gsb.modele.dao.stockerDao;
 import gsb.utils.AffichageModele;
 
 public class TestModeleDao {
@@ -84,6 +86,9 @@ public class TestModeleDao {
 		
 		System.out.println("test"+VisiteurDao.retournerLesVisiteurs());
 		
+		
+		Stocker unStock = new Stocker(3, UnVisiteur, UnMedicament);
+		stockerDao.ajoutEchant(unStock);
 		
 	}
 
