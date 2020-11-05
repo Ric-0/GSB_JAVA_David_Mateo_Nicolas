@@ -91,7 +91,5 @@ public class MedicamentDao {
 		return LesMedicaments;
 		
 	}
-
-	
 	
 }
