@@ -1,11 +1,13 @@
 package gsb.service;
 
+import java.util.ArrayList;
+
 import gsb.modele.Medicament;
 import gsb.modele.Stocker;
 import gsb.modele.Visiteur;
 import gsb.modele.dao.MedicamentDao;
 import gsb.modele.dao.VisiteurDao;
-import gsb.modele.dao.stockerDao;
+import gsb.modele.dao.StockerDao;
 
 public class StockerService {
 
@@ -33,13 +35,26 @@ public class StockerService {
 				Visiteur visiteur = VisiteurDao.rechercher(matricule);
 				Medicament medicament = MedicamentDao.rechercher(depotLeg);
 				Stocker UnStock = new Stocker(uneqteStock, visiteur, medicament);
-				stockerDao.ajoutEchant(UnStock);
+				StockerDao.ajoutEchant(UnStock);
 				verif =1;
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return verif;
-
+	}
+	public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule) {
+		ArrayList<Stocker> lesStocks = new ArrayList<Stocker>();
+		lesStocks = null;
+		try {
+		if (VisiteService.rechercherVisiteur(matricule) == null) {
+			throw new Exception ("Le visiteur n'existe pas.");		
+			}
+		lesStocks = StockerDao.retournerLesStocksSpecifiques(matricule);
+}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return lesStocks;
 	}
 }
