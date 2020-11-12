@@ -42,7 +42,7 @@ public class VisiteDao {
 		 String codeMed=unMedecin.getCodeMed();
 		 Visiteur unVisiteur=uneVisite.getUnVisiteur();
 		 String matricule=unVisiteur.getMatricule();
-		int ResultatReq=0;
+		 int ResultatReq=0;
 		
 		try{
 			

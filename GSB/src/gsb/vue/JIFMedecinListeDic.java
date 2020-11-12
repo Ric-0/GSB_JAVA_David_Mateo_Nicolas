@@ -41,7 +41,8 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 	private static final long serialVersionUID = 1L;
 
 	//private ArrayList<Medecin> lesMedecins;
-	private HashMap<String,Medecin> diccoMedecin;
+	private HashMap<String,ArrayList<Medecin>> diccoMedecin;
+
 
 	protected JPanel p;
 	protected JScrollPane scrollPane;
@@ -56,8 +57,9 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 		fenetreContainer = uneFenetreContainer;
 		// récupération des données Medecin dans la collection
 		//lesMedecins = MedecinDao.retournerCollectionDesMedecins();
+
 		//int nbLignes = lesMedecins.size();
-		//diccoMedecin = MedecinDao.retournerDictionnaireDesMedecins();
+		diccoMedecin.put("Medecin",MedecinDao.retournerLesMedecins());
 		int nbLignes= diccoMedecin.size();
 		
 		p = new JPanel(); // panneau principal de la fenêtre
@@ -66,7 +68,7 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 		String[][] data = new String[nbLignes][4] ;
 		//for(Medecin unMedecin : lesMedecins){
 		
-		for (Map.Entry<String,Medecin> uneEntree : diccoMedecin.entrySet()){
+		for (Map.Entry<String,ArrayList<Medecin>> uneEntree : diccoMedecin.entrySet()){
 			data[i][0] = uneEntree.getValue().getCodeMed();
 			data[i][1] = uneEntree.getValue().getNom();
 			data[i][2] = uneEntree.getValue().getPrenom();

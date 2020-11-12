@@ -1,7 +1,5 @@
 package gsb.tests;
 
-import java.util.ArrayList;
-
 import gsb.modele.Localite;
 import gsb.modele.Medecin;
 import gsb.modele.Medicament;
@@ -14,7 +12,6 @@ import gsb.modele.dao.MedicamentDao;
 import gsb.modele.dao.VisiteDao;
 import gsb.modele.dao.VisiteurDao;
 import gsb.modele.dao.StockerDao;
-import gsb.service.StockerService;
 import gsb.utils.AffichageModele;
 
 public class TestModeleDao {
@@ -22,7 +19,7 @@ public class TestModeleDao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		/*AffichageModele.afficher(LocaliteDao.rechercher("13012")); 
+		AffichageModele.afficher(LocaliteDao.rechercher("13012")); 
 		
 		System.out.println("----------------------------------------------");
 		
@@ -87,14 +84,12 @@ public class TestModeleDao {
 		
 		System.out.println("----------------------------------------------");
 		
-		System.out.println("test"+VisiteurDao.retournerLesVisiteurs());*/
+		System.out.println("test"+VisiteurDao.retournerLesVisiteurs());
 		
-		StockerService.ajoutEchant(4, "PL56", "IBU20");
-		StockerService.ajoutEchant(3, "PL56", "BACTIG10");
 		
-		for (Stocker unStock:StockerDao.retournerLesStocks()) {
-			AffichageModele.afficher(unStock);
-		}
+		Stocker unStock = new Stocker(3, UnVisiteur, UnMedicament);
+		StockerDao.ajoutEchant(unStock);
+		
 	}
 
 }

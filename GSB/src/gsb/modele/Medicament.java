@@ -91,6 +91,11 @@ public class Medicament {
 	public float getPrixEchantillon() {
 		return prixEchantillon;
 	}
+	
+	public String getPrixEchantillonString() {
+		String str = Float.toString(getPrixEchantillon());
+		return str;
+	}
 
 
 
@@ -120,6 +125,13 @@ public class Medicament {
 
 	public void setLibellefamille(String libellefamille) {
 		this.libellefamille = libellefamille;
+	}
+
+
+
+	public Medicament get(int indiceEnCours) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

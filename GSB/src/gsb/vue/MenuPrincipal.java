@@ -34,6 +34,9 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 	JMenu mVisites;
 
+	/**
+	 * 
+	 */
 	public MenuPrincipal() {
 
 		myJInternalFrame = new JInternalFrame(); // pour affichage d'une seule
@@ -66,7 +69,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 		mVisites = new JMenu("Visites");
 		JMenuItem mA1 = new JMenuItem("Consultation Visite");
-		mE1.addActionListener(this); // installation d'un écouteur d'action
+		mA1.addActionListener(this); // installation d'un écouteur d'action
 		mVisites.add(mA1);
 		JMenuItem mA2 = new JMenuItem("Ajout Visite");
 		mA2.addActionListener(this);
@@ -90,8 +93,15 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 				// Creation d'une sous-fenêtre
 				ouvrirFenetre(new JIFMedecinCons());
 
-			} else if (ChoixOption.equals("Liste Medecins")) {
+			} 
+			else if (ChoixOption.equals("Liste Medecins")) {
 				ouvrirFenetre(new JIFMedecinListeDic(this));
+			}
+			else if (ChoixOption.equals("Consultation Visite")) {
+				ouvrirFenetre(new JIFVisiteCons());
+			}
+			else if (ChoixOption.equals("Consultation Medicament")) {
+				ouvrirFenetre(new JIFMedicamentCons());
 			}
 
 		}

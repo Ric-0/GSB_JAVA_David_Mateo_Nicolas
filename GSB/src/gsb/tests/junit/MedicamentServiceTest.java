@@ -1,10 +1,12 @@
-/*package gsb.tests.junit;
+package gsb.tests.junit;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import gsb.service.MedicamentService;
 
 public class MedicamentServiceTest {
 
@@ -17,9 +19,12 @@ public class MedicamentServiceTest {
 	}
 
 	@Test
-	public final void testRechercher() {
-		fail("Not yet implemented"); // TODO
+	public final void testRechercherDepNull() {
+		assertNull("Le dépot légal doit être renseigné.", MedicamentService.rechercher(null));
 	}
+	public final void testRechercherDepExistant() {
+		assertNull("Le dépot légal ne correspend à RIEN.", MedicamentService.rechercher("blbl"));
+	}
+	
 
 }
-*/

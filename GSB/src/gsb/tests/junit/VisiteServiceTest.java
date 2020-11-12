@@ -6,8 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import gsb.modele.Localite;
-import gsb.modele.Medecin;
 import gsb.modele.dao.VisiteurDao;
 import gsb.service.VisiteService;
 
@@ -101,7 +99,7 @@ public class VisiteServiceTest {
 	@Test
 	public final void testCreerVisiteMatriculeIntrouvable() {
 		
-		assertEquals("Resultat insertion : ",0,VisiteService.creerVisite("v0054","08/10/2020","RAS","m001","j4"));
+		assertEquals("Resultat insertion : ",0,VisiteService.creerVisite("v0054","08/10/2020","RAS","m001","blblbl"));
 		
 	}
 
