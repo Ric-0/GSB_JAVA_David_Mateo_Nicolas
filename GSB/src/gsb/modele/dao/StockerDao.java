@@ -27,8 +27,7 @@ public class StockerDao {
 public static ArrayList<Stocker> retournerLesStocks(){
 	
 	ArrayList<Stocker> LesStocks;
-	LesStocks=new ArrayList<Stocker>();
-	
+	LesStocks=new ArrayList<Stocker>();	
 	try{
 		
 		ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM STOCKER");
@@ -51,7 +50,8 @@ public static ArrayList<Stocker> retournerLesStocks(){
 	
 }
 
-public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule){
+
+public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule) {
 	
 	ArrayList<Stocker> LesStocks;
 	LesStocks=new ArrayList<Stocker>();
@@ -76,7 +76,6 @@ public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule)
 	return LesStocks;
 	
 }
-
 }
 
 

@@ -1,4 +1,4 @@
-package gsb.tests.junit;
+/*package gsb.tests.junit;
 
 import static org.junit.Assert.*;
 
@@ -22,3 +22,4 @@ public class MedicamentServiceTest {
 	}
 
 }
+*/

@@ -34,9 +34,6 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 	JMenu mVisites;
 
-	/**
-	 * 
-	 */
 	public MenuPrincipal() {
 
 		myJInternalFrame = new JInternalFrame(); // pour affichage d'une seule

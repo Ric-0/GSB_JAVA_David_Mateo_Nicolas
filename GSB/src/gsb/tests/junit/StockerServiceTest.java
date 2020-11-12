@@ -1,3 +1,4 @@
+/*
 package gsb.tests.junit;
 
 import org.junit.After;
@@ -24,3 +25,4 @@ public class StockerServiceTest extends TestCase {
 	}
 
 }
+*/

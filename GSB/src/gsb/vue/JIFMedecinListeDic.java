@@ -43,7 +43,6 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 	//private ArrayList<Medecin> lesMedecins;
 	private HashMap<String,Medecin> diccoMedecin;
 
-
 	protected JPanel p;
 	protected JScrollPane scrollPane;
 	protected JPanel pSaisie;
@@ -57,9 +56,8 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 		fenetreContainer = uneFenetreContainer;
 		// récupération des données Medecin dans la collection
 		//lesMedecins = MedecinDao.retournerCollectionDesMedecins();
-
 		//int nbLignes = lesMedecins.size();
-		diccoMedecin = MedecinDao.retournerDictionnaireDesMedecins();
+		//diccoMedecin = MedecinDao.retournerDictionnaireDesMedecins();
 		int nbLignes= diccoMedecin.size();
 		
 		p = new JPanel(); // panneau principal de la fenêtre

@@ -36,7 +36,7 @@ public class VisiteService {
 		
    }
 
-	public Visiteur rechercherVisiteur(String LeMatriculeVisiteur){
+	public static Visiteur rechercherVisiteur(String LeMatriculeVisiteur){
 		
 		Visiteur LeVisiteur=null;
 		
