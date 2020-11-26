@@ -12,7 +12,7 @@ public class JIFMedicament extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
 	protected JPanel p;
-	protected JPanel pTexte1;
+	protected GridLayout pTexte1;
 	protected JPanel pTexte2;
 	protected JPanel pBoutons;
 	protected JPanel pBoutonInfo;
@@ -40,9 +40,75 @@ public class JIFMedicament extends JInternalFrame {
 	protected JTextField JTLibellFam;
 
 	
-	public JIFMedicament() {
+    public JIFMedicament() {
+    	p = new JPanel();  // panneau principal de la fenêtre
+        pBoutons = new JPanel();    // panneau supportant les boutons
+        JPanel pTexte = new JPanel(new GridLayout(9,2));
+    	
+		JLDepotLeg = new JLabel("Référence");
+		JLNomCommer = new JLabel("Nom commercial");
+		JLCompo = new JLabel("Composition");
+		JLEffets = new JLabel("Les effets");
+		JLContrIndi = new JLabel("Contre indication");
+		JLPrixEchant = new JLabel("Prix échantillon");
+		JLCodeFam = new JLabel("Code famille");
+		JLLibellFam =  new JLabel("Libellé famille");
+         
+     /*    JTcode = new JTextField(20);
+         JTcode.setMaximumSize(JTcode.getPreferredSize());
+         JTnom = new JTextField();
+         JTprenom = new JTextField();
+         JTadresse = new JTextField();    
+         JTcp = new JTextField();
+         JTville = new JTextField();
+         JTtelephone = new JTextField();
+         JTpotentiel = new JTextField();
+         JTspecialite = new JTextField(); */
+		
+		JTDepotLeg = new JTextField();
+		JTNomCommer = new JTextField();
+		JTCompo = new JTextField();
+		JTEffets = new JTextField();
+		JTContrIndi = new JTextField();
+		JTPrixEchant = new JTextField();
+		JTCodeFam = new JTextField();
+		JTLibellFam = new JTextField();
+         
+		pTexte.add(JLDepotLeg);
+		pTexte.add(JTDepotLeg);
+		
+		pTexte.add(JLNomCommer);
+		pTexte.add(JTNomCommer);
+		
+		pTexte.add(JLCompo);
+		pTexte.add(JTCompo);
+		
+		pTexte.add(JLEffets);
+		pTexte.add(JTEffets);
+		
+		pTexte.add(JLContrIndi);
+		pTexte.add(JTContrIndi);
+		
+		pTexte.add(JLPrixEchant);
+		pTexte.add(JTPrixEchant);
+		
+		pTexte.add(JLCodeFam);
+		pTexte.add(JTCodeFam);
+		
+		pTexte.add(JLLibellFam);
+		pTexte.add(JTLibellFam);
+		
+        // mise en forme de la fenêtre
+
+         p.add(pTexte);
+         p.add(pBoutons);
+         Container contentPane = getContentPane();
+         contentPane.add(p);
+
+	}
+	/*public JIFMedicament() {
 		p = new JPanel();
-		pTexte1 = new JPanel(new GridLayout(9,2));
+		pTexte1 = new GridLayout(9,2);
 		pTexte2 = new JPanel(new GridLayout(3,3));
 		pBoutons = new JPanel();
 		pBoutonInfo = new JPanel();
@@ -101,7 +167,7 @@ public class JIFMedicament extends JInternalFrame {
 		
 		Container contentPane = getContentPane();
         contentPane.add(p);
-	}
+	}*/
 	
 	public void remplirText(Medicament unMedic) {
 		JTDepotLeg.setText(unMedic.getDepotLegal());

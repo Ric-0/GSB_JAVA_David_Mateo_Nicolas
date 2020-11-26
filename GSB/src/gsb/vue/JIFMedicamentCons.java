@@ -39,9 +39,9 @@ public class JIFMedicamentCons extends JIFMedicament implements ActionListener{
         precedent.addActionListener(this);
         dernier.addActionListener(this);
         
-        info = new JButton("Fiche détaillée");
+        /*info = new JButton("Fiche détaillée");
         pBoutonInfo.add(info);
-        info.addActionListener(this);
+        info.addActionListener(this);*/
         
         
         setDefaultCloseOperation(HIDE_ON_CLOSE);
