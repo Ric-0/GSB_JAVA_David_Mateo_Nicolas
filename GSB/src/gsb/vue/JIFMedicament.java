@@ -1,194 +1,125 @@
+/*
+ * Créé le 22 mars 2012
+ *
+ * TODO Pour changer le modèle de ce fichier généré, allez à :
+ * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ */
 package gsb.vue;
+
+import gsb.modele.Medicament;
 
 import java.awt.Container;
 import java.awt.GridLayout;
 
-import javax.swing.*;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-import gsb.modele.Medicament;
-import gsb.modele.Visite;
 
-public class JIFMedicament extends JInternalFrame {
-
+public class JIFMedicament extends JInternalFrame  {
+	/**
+	 * Commentaire pour <code>serialVersionUID</code>
+	 */
 	private static final long serialVersionUID = 1L;
-	protected JPanel p;
-	protected GridLayout pTexte1;
-	protected JPanel pTexte2;
+	protected JPanel p;  
+	protected JPanel pTexte;
 	protected JPanel pBoutons;
-	protected JPanel pBoutonInfo;
-	
-	protected JLabel JLDepotLeg;
-	protected JLabel JLNomCommer;
-	protected JLabel JLCompo;
-	protected JLabel JLEffets;
-	protected JLabel JLContrIndi;
-	protected JLabel JLdl;
-	protected JLabel Jlqo;
-	protected JLabel JLPrixEchant;
-	protected JLabel JLCodeFam;
-	protected JLabel JLLibellFam;
-	
-	protected JLabel JLvide;
-	
-	protected JTextField JTDepotLeg;
-	protected JTextField JTNomCommer;
-	protected JTextField JTCompo;
-	protected JTextField JTEffets;
-	protected JTextField JTContrIndi;
-	protected JTextField JTPrixEchant;
-	protected JTextField JTCodeFam;
-	protected JTextField JTLibellFam;
 
+	protected JLabel JLdepotLegal;
+	protected JLabel JLnomCommercial;
+	protected JLabel JLcomposition;
+	protected JLabel JLeffets;
+	protected JLabel JLcontreIndication;
+    protected JLabel JLprixEchantillon;
+    protected JLabel JLcodeFamille;
+    protected JLabel JLlibelleFamille;
+    
+	protected JTextField JTdepotLegal;
+	protected JTextField JTnomCommercial;
+	protected JTextField JTcomposition;
+	protected JTextField JTeffets;
+	protected JTextField JTcontreIndication;
+    protected JTextField JTprixEchantillon;
+    protected JTextField JTcodeFamille;
+    protected JTextField JTlibelleFamille;
 	
     public JIFMedicament() {
-    	p = new JPanel();  // panneau principal de la fenêtre
+    	p = new JPanel(new GridLayout(2,1));  // panneau principal de la fenêtre
         pBoutons = new JPanel();    // panneau supportant les boutons
-        JPanel pTexte = new JPanel(new GridLayout(9,2));
+        pTexte = new JPanel(new GridLayout(10,4));
     	
-		JLDepotLeg = new JLabel("Référence");
-		JLNomCommer = new JLabel("Nom commercial");
-		JLCompo = new JLabel("Composition");
-		JLEffets = new JLabel("Les effets");
-		JLContrIndi = new JLabel("Contre indication");
-		JLPrixEchant = new JLabel("Prix échantillon");
-		JLCodeFam = new JLabel("Code famille");
-		JLLibellFam =  new JLabel("Libellé famille");
+    	 JLdepotLegal = new JLabel("Dépôt légal : ");
+         JLnomCommercial = new JLabel("Nom commercial : ");
+         JLcomposition = new JLabel("Composition : ");
+         JLeffets = new JLabel("Effets : ");
+         JLcontreIndication = new JLabel("Contre indication : ");
+         JLprixEchantillon = new JLabel("Prix échantillon : ");
+         JLcodeFamille = new JLabel("Code famille : ");
+         JLlibelleFamille = new JLabel("Libellé famille : ");
          
-     /*    JTcode = new JTextField(20);
-         JTcode.setMaximumSize(JTcode.getPreferredSize());
-         JTnom = new JTextField();
-         JTprenom = new JTextField();
-         JTadresse = new JTextField();    
-         JTcp = new JTextField();
-         JTville = new JTextField();
-         JTtelephone = new JTextField();
-         JTpotentiel = new JTextField();
-         JTspecialite = new JTextField(); */
-		
-		JTDepotLeg = new JTextField();
-		JTNomCommer = new JTextField();
-		JTCompo = new JTextField();
-		JTEffets = new JTextField();
-		JTContrIndi = new JTextField();
-		JTPrixEchant = new JTextField();
-		JTCodeFam = new JTextField();
-		JTLibellFam = new JTextField();
          
-		pTexte.add(JLDepotLeg);
-		pTexte.add(JTDepotLeg);
-		
-		pTexte.add(JLNomCommer);
-		pTexte.add(JTNomCommer);
-		
-		pTexte.add(JLCompo);
-		pTexte.add(JTCompo);
-		
-		pTexte.add(JLEffets);
-		pTexte.add(JTEffets);
-		
-		pTexte.add(JLContrIndi);
-		pTexte.add(JTContrIndi);
-		
-		pTexte.add(JLPrixEchant);
-		pTexte.add(JTPrixEchant);
-		
-		pTexte.add(JLCodeFam);
-		pTexte.add(JTCodeFam);
-		
-		pTexte.add(JLLibellFam);
-		pTexte.add(JTLibellFam);
+         
+         JTdepotLegal = new JTextField(20);
+         JTnomCommercial = new JTextField(20);
+         JTcomposition = new JTextField(20);            
+         JTeffets = new JTextField(20);               
+         JTcontreIndication = new JTextField(20); 
+         JTprixEchantillon = new JTextField(20);         
+         JTcodeFamille = new JTextField(20);         
+         JTlibelleFamille = new JTextField(20);  
+         
+         
+         pTexte.add(JLdepotLegal);
+         pTexte.add(JTdepotLegal);
+         pTexte.add(JLnomCommercial);
+         pTexte.add(JTnomCommercial);
+         pTexte.add(JLcomposition);
+         pTexte.add(JTcomposition);
+         pTexte.add(JLeffets);
+         pTexte.add(JTeffets);
+         pTexte.add(JLcontreIndication);
+         pTexte.add(JTcontreIndication);
+         pTexte.add(JLprixEchantillon);
+         pTexte.add(JTprixEchantillon);
+         pTexte.add(JLcodeFamille);
+         pTexte.add(JTcodeFamille);
+         pTexte.add(JLlibelleFamille);
+         pTexte.add(JTlibelleFamille);
 		
         // mise en forme de la fenêtre
-
          p.add(pTexte);
          p.add(pBoutons);
          Container contentPane = getContentPane();
          contentPane.add(p);
+	}
+   
+    public void remplirText(Medicament unMedic) 	
+    {  // méthode qui permet de remplir les zones de texte à partir des valeurs passées en paramètres
+    	JTdepotLegal.setText(unMedic.getDepotLegal());
+    	JTnomCommercial.setText(unMedic.getNomCommercial());
+    	JTcomposition.setText(unMedic.getComposition());
+    	JTeffets.setText(unMedic.getEffets());
+    	JTcontreIndication.setText(unMedic.getContreIndication());
+    	JTprixEchantillon.setText(unMedic.getPrixEchantillonString());
+    	JTcodeFamille.setText(unMedic.getCodeFamille());
+    	JTlibelleFamille.setText(unMedic.getLibellefamille());
+    
+    	
+     }
+     
+      public void viderText() 	
+    {  // méthode qui permet de vider les zones de texte 
+      	JTdepotLegal.setText("");
+      	JTnomCommercial.setText("");
+      	JTcomposition.setText("");
+      	JTeffets.setText("");
+      	JTcontreIndication.setText("");
+      	JTprixEchantillon.setText("");
+      	JTcodeFamille.setText("");
+      	JTlibelleFamille.setText("");
+     }
 
-	}
-	/*public JIFMedicament() {
-		p = new JPanel();
-		pTexte1 = new GridLayout(9,2);
-		pTexte2 = new JPanel(new GridLayout(3,3));
-		pBoutons = new JPanel();
-		pBoutonInfo = new JPanel();
-		
-		JLDepotLeg = new JLabel("Référence");
-		JLNomCommer = new JLabel("Nom commercial");
-		JLCompo = new JLabel("Composition");
-		JLEffets = new JLabel("Les effets");
-		JLContrIndi = new JLabel("Contre indication");
-		JLPrixEchant = new JLabel("Prix échantillon");
-		JLCodeFam = new JLabel("Code famille");
-		JLLibellFam =  new JLabel("Libellé famille");
-		
-		JLvide = new JLabel(" ");
-		
-		JTDepotLeg = new JTextField();
-		JTNomCommer = new JTextField();
-		JTCompo = new JTextField();
-		JTEffets = new JTextField();
-		JTContrIndi = new JTextField();
-		JTPrixEchant = new JTextField();
-		JTCodeFam = new JTextField();
-		JTLibellFam = new JTextField();
-		
-		pTexte1.add(JLDepotLeg);
-		pTexte1.add(JTDepotLeg);
-		
-		pTexte1.add(JLNomCommer);
-		pTexte1.add(JTNomCommer);
-		
-		pTexte1.add(JLCompo);
-		pTexte1.add(JTCompo);
-		
-		pTexte1.add(JLEffets);
-		pTexte1.add(JTEffets);
-		
-		pTexte1.add(JLContrIndi);
-		pTexte1.add(JTContrIndi);
-		
-		pTexte1.add(JLPrixEchant);
-		pTexte1.add(JTPrixEchant);
-		
-		pTexte1.add(JLCodeFam);
-		pTexte1.add(JTCodeFam);
-		
-		pTexte1.add(JLLibellFam);
-		pTexte1.add(JTLibellFam);
-		
-		p.add(pTexte1);	
-		
-		p.add(pTexte2);
-		
-		p.add(pBoutons);
-		
-		p.add(pBoutonInfo);
-		
-		Container contentPane = getContentPane();
-        contentPane.add(p);
-	}*/
-	
-	public void remplirText(Medicament unMedic) {
-		JTDepotLeg.setText(unMedic.getDepotLegal());
-		JTNomCommer.setText(unMedic.getNomCommercial());
-		JTCompo.setText(unMedic.getComposition());
-		JTEffets.setText(unMedic.getEffets());
-		JTContrIndi.setText(unMedic.getContreIndication());
-		JTPrixEchant.setText(unMedic.getPrixEchantillonString());
-		JTCodeFam.setText(unMedic.getCodeFamille());
-		JTLibellFam.setText(unMedic.getLibellefamille());
-		
-	}
-	
-	public void viderText() {
-		JTDepotLeg.setText("");
-		JTNomCommer.setText("");
-		JTCompo.setText("");
-		JTEffets.setText("");
-		JTContrIndi.setText("");
-		JTPrixEchant.setText("");
-		JTCodeFam.setText("");
-		JTLibellFam.setText("");
-	}
+
+    
 }

@@ -128,11 +128,6 @@ public class Medicament {
 	}
 
 
-
-	public Medicament get(int indiceEnCours) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	
 	

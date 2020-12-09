@@ -42,7 +42,7 @@ public class TestsDesModeles {
 		AffichageModele.afficher(UneOffre);
 		System.out.println("=====================================");
 		
-		Stocker UnStock=new Stocker(25,UnVisiteur,UnMedicament);
+		Stocker UnStock=new Stocker("25",UnVisiteur,UnMedicament);
 		AffichageModele.afficher(UnStock);
 	}
 

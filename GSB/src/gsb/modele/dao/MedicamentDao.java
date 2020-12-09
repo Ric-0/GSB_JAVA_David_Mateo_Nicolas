@@ -11,10 +11,13 @@ public class MedicamentDao {
 	public static Medicament  rechercher(String medDepotLegal){
 		//test 2
 		Medicament UnMedicament=null; 
+
 		
 		try{
 			
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM MEDICAMENT WHERE MED_DEPOTLEGAL='"+medDepotLegal+"'");
+			String req = "SELECT * FROM MEDICAMENT where MED_DEPOTLEGAL='"+medDepotLegal+"'";
+			
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection(req);
 			
 			if(ResultatReq.next()){
 				
@@ -26,7 +29,7 @@ public class MedicamentDao {
 		}catch(Exception e){
 			
 			
-			System.out.println("Erreur lors de la requête : SELECT * FROM MEDICAMENT WHERE MED_DEPOTLEGAL='"+medDepotLegal+"'");
+			System.out.println("Erreur lors de la requête :\"SELECT * FROM MEDICAMENT where MED_DEPOTLEGAL='"+medDepotLegal+"'");
 			
 		}
 		

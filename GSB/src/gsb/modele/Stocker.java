@@ -2,12 +2,18 @@ package gsb.modele;
 
 public class Stocker {
 
-	protected int qteStock;
+	@Override
+	public String toString() {
+		return "Stocker [qteStock=" + qteStock + ", unVisiteur=" + unVisiteur + ", unMedicament=" + unMedicament + "]";
+	}
+
+
+	protected String qteStock;
 	public Visiteur unVisiteur;
 	public Medicament unMedicament;
 
 	
-	public Stocker(int UneqteStock, Visiteur UnVisiteur, Medicament UnMedicament){
+	public Stocker(String UneqteStock, Visiteur UnVisiteur, Medicament UnMedicament){
 		
 		this.qteStock=UneqteStock;
 		this.unVisiteur=UnVisiteur;
@@ -17,12 +23,12 @@ public class Stocker {
 	}
 
 
-	public int getQteStock() {
+	public String getQteStock() {
 		return qteStock;
 	}
 
 
-	public void setQteStock(int qteStock) {
+	public void setQteStock(String qteStock) {
 		this.qteStock = qteStock;
 	}
 

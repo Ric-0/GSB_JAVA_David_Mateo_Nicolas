@@ -11,6 +11,8 @@ import gsb.modele.dao.MedecinDao;
 import gsb.modele.dao.MedicamentDao;
 import gsb.modele.dao.VisiteDao;
 import gsb.modele.dao.VisiteurDao;
+import gsb.service.MedecinService;
+import gsb.service.MedicamentService;
 import gsb.modele.dao.StockerDao;
 import gsb.utils.AffichageModele;
 
@@ -19,7 +21,7 @@ public class TestModeleDao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		AffichageModele.afficher(LocaliteDao.rechercher("13012")); 
+		/*AffichageModele.afficher(LocaliteDao.rechercher("13012")); 
 		
 		System.out.println("----------------------------------------------");
 		
@@ -87,8 +89,13 @@ public class TestModeleDao {
 		System.out.println("test"+VisiteurDao.retournerLesVisiteurs());
 		
 		
-		Stocker unStock = new Stocker(3, UnVisiteur, UnMedicament);
-		StockerDao.ajoutEchant(unStock);
+		Stocker unStock = new Stocker("3", UnVisiteur, UnMedicament);
+		StockerDao.ajoutEchant(unStock);*/
+		
+		System.out.println(MedicamentDao.rechercher("3MYC7"));
+		
+		String medDepotLegal = "3MYC7";
+		
 		
 	}
 

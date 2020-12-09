@@ -11,7 +11,7 @@ public class StockerDao {
 	public static int ajoutEchant(Stocker unStock) {
 		String matricule=unStock.getUnVisiteur().getMatricule();
 		String medDepotLegal=unStock.getUnMedicament().getDepotLegal();
-		int qte= unStock.getQteStock();
+		String qte= unStock.getQteStock();
 		int ResultatReq=0;
 		try{
 			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO STOCKER VALUES('"+qte+"','"+matricule+"','"+medDepotLegal+"')");
@@ -37,7 +37,7 @@ public static ArrayList<Stocker> retournerLesStocks(){
 			
 			String unMatricule = ResultatReq.getString(2);
 			String unDepotLegal = ResultatReq.getString(3);
-		    Stocker UnStock=new Stocker(ResultatReq.getInt(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
+		    Stocker UnStock=new Stocker(ResultatReq.getString(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
 			LesStocks.add(UnStock);
 
 		}
@@ -64,7 +64,7 @@ public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule)
 				
 			String unMatricule = ResultatReq.getString(2);
 			String unDepotLegal = ResultatReq.getString(3);
-		    Stocker UnStock=new Stocker(ResultatReq.getInt(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
+		    Stocker UnStock=new Stocker(ResultatReq.getString(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
 			LesStocks.add(UnStock);
 
 		}
@@ -75,6 +75,31 @@ public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule)
 	
 	return LesStocks;
 	
+}
+public static String retournerUnStock(String matricule, String depotLeg) {
+	String resu = null;
+	
+	Stocker unStock = new Stocker(null,null,null);
+	
+	try{
+		
+		ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM STOCKER WHERE MATRICULE='"+matricule+"' AND DEPOTLEGAL ='"+depotLeg+"'");
+		
+		while(ResultatReq.next()){
+
+			unStock.setQteStock((ResultatReq.getString(1)));
+			unStock.setUnVisiteur(VisiteurDao.rechercher(ResultatReq.getString(2)));
+			unStock.setUnMedicament(MedicamentDao.rechercher(ResultatReq.getString(3)));
+		
+		}
+		
+	}catch(Exception e){
+		System.out.println(" Erreur lors de la requête : SELECT * FROM STOCKER WHERE MATRICULE='\"+matricule+\"' AND DEPOTLEGAL ='\"+depotLeg+\"'");	
+	}
+	
+	resu = unStock.toString();
+	
+	return resu;
 }
 }
 

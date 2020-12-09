@@ -47,7 +47,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		contentPane.add(desktopPane, BorderLayout.CENTER);
 
 		setTitle("GSB");
-		setSize(500, 400);
+		setSize(1500,1000);
 
 		// Ajout d'une barre de menus à la fenêtre
 		mbar = new JMenuBar();
@@ -94,18 +94,16 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 				ouvrirFenetre(new JIFMedecinCons());
 
 			} 
-			else if (ChoixOption.equals("Liste Medecins")) {
-				ouvrirFenetre(new JIFMedecinListeDic(this));
-			}
 			else if (ChoixOption.equals("Consultation Visite")) {
 				ouvrirFenetre(new JIFVisiteCons());
 			}
 			else if (ChoixOption.equals("Consultation Medicament")) {
 				ouvrirFenetre(new JIFMedicamentCons());
 			}
-
+			else if (ChoixOption.contentEquals("Ajout Medicaments")) {
+				ouvrirFenetre(new JIFStockerAjout());
 		}
-
+		}
 	}
 
 	public void ouvrirFenetre(JInternalFrame uneFenetre) {
@@ -116,7 +114,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		myJInternalFrame.setResizable(true);
 		myJInternalFrame.setMaximizable(true);
 		myJInternalFrame.setClosable(true);
-		myJInternalFrame.setSize(480, 380);
+		myJInternalFrame.setSize(1480,1000);
 		desktopPane.add(myJInternalFrame);
 	}
 

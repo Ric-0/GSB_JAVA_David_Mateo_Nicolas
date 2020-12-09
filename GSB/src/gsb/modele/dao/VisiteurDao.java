@@ -28,7 +28,7 @@ public class VisiteurDao {
 			
 		}catch(Exception e){
 			
-			System.out.println("Erreur lors de la requête : SELECT * FROM VISITEUR WHERE MATRICULE='"+matricule+"'");
+			System.out.println("Erreur lors de la requête : SELECT * FROM VISITEUR WHERE MATRICULE='+matricule+'");
 			
 		}
 		

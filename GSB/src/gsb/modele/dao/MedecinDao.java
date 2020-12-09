@@ -15,7 +15,7 @@ public class MedecinDao {
 		
 		try{
 				
-			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM MEDECIN WHERE CODEMED='"+codemed+"'");
+			ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM MEDICAMENT where MED_DEPOTLEGAL='"+codemed+"'");
 			
 			if(ResultatReq.next()){
 				
