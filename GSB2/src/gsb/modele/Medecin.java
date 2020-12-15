@@ -2,14 +2,6 @@ package gsb.modele;
 
 public class Medecin {
 
-	@Override
-	public String toString() {
-		return "Medecin [codeMed=" + codeMed + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
-				+ ", telephone=" + telephone + ", potentiel=" + potentiel + ", specialite=" + specialite
-				+ ", uneLocalite=" + uneLocalite + "]";
-	}
-
-
 	protected String codeMed;
 	protected String nom;
 	protected String prenom;

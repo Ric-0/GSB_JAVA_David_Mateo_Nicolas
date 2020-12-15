@@ -6,16 +6,16 @@
  */
 package gsb.vue;
 
-import gsb.modele.Medicament;
+import gsb.modele.Medecin;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 
 public class JIFMedicament extends JInternalFrame  {
 	/**
@@ -25,6 +25,7 @@ public class JIFMedicament extends JInternalFrame  {
 	protected JPanel p;  
 	protected JPanel pTexte;
 	protected JPanel pBoutons;
+	
 
 	protected JLabel JLdepotLegal;
 	protected JLabel JLnomCommercial;
@@ -43,32 +44,32 @@ public class JIFMedicament extends JInternalFrame  {
     protected JTextField JTprixEchantillon;
     protected JTextField JTcodeFamille;
     protected JTextField JTlibelleFamille;
+
 	
-    public JIFMedicament() {
-    	p = new JPanel(new GridLayout(2,1));  // panneau principal de la fenêtre
+    public JIFMedecin() {
+    	p = new JPanel();  // panneau principal de la fenêtre
         pBoutons = new JPanel();    // panneau supportant les boutons
-        pTexte = new JPanel(new GridLayout(10,4));
+        pTexte = new JPanel(new GridLayout(8,2));
     	
-    	 JLdepotLegal = new JLabel("Dépôt légal : ");
-         JLnomCommercial = new JLabel("Nom commercial : ");
-         JLcomposition = new JLabel("Composition : ");
-         JLeffets = new JLabel("Effets : ");
-         JLcontreIndication = new JLabel("Contre indication : ");
-         JLprixEchantillon = new JLabel("Prix échantillon : ");
-         JLcodeFamille = new JLabel("Code famille : ");
-         JLlibelleFamille = new JLabel("Libellé famille : ");
-         
-         
+    	 JLdepotLegal = new JLabel("Code");
+         JLnomCommercial = new JLabel("Nom");
+         JLcomposition = new JLabel("Prénom");
+         JLeffets = new JLabel("Adresse rue");
+         JLcontreIndication = new JLabel("Code postal");
+         JLprixEchantillon = new JLabel("Ville");
+         JLcodeFamille = new JLabel("Téléphone");
+         JLlibelleFamille = new JLabel("potentiel");
          
          JTdepotLegal = new JTextField(20);
-         JTnomCommercial = new JTextField(20);
-         JTcomposition = new JTextField(20);            
-         JTeffets = new JTextField(20);               
-         JTcontreIndication = new JTextField(20); 
-         JTprixEchantillon = new JTextField(20);         
-         JTcodeFamille = new JTextField(20);         
-         JTlibelleFamille = new JTextField(20);  
-         
+         JTnomCommercial = new JTextField();
+         JTcomposition = new JTextField();
+         JTeffets = new JTextField();
+         JTcontreIndication = new JTextField();    
+         JTprixEchantillon = new JTextField();
+         JTcodeFamille = new JTextField();
+         JTlibelleFamille = new JTextField();
+
+
          
          pTexte.add(JLdepotLegal);
          pTexte.add(JTdepotLegal);
@@ -88,36 +89,38 @@ public class JIFMedicament extends JInternalFrame  {
          pTexte.add(JTlibelleFamille);
 		
         // mise en forme de la fenêtre
+
          p.add(pTexte);
          p.add(pBoutons);
          Container contentPane = getContentPane();
          contentPane.add(p);
+
 	}
-   
-    public void remplirText(Medicament unMedic) 	
-    {  // méthode qui permet de remplir les zones de texte à partir des valeurs passées en paramètres
-    	JTdepotLegal.setText(unMedic.getDepotLegal());
-    	JTnomCommercial.setText(unMedic.getNomCommercial());
-    	JTcomposition.setText(unMedic.getComposition());
-    	JTeffets.setText(unMedic.getEffets());
-    	JTcontreIndication.setText(unMedic.getContreIndication());
-    	JTprixEchantillon.setText(unMedic.getPrixEchantillonString());
-    	JTcodeFamille.setText(unMedic.getCodeFamille());
-    	JTlibelleFamille.setText(unMedic.getLibellefamille());
     
-    	
+    public void remplirText(Medecin unMedecin) 	
+    {  // méthode qui permet de remplir les zones de texte à partir des valeurs passées en paramètres
+        JTcode.setText(unMedecin.getCodeMed());        
+        JTnom.setText(unMedecin.getNom());
+        JTprenom.setText(unMedecin.getPrenom());
+        JTadresse.setText(unMedecin.getAdresse());    
+        JTcp.setText(unMedecin.getUneLocalite().getCodePostal());
+        JTville.setText(unMedecin.getUneLocalite().getVille());
+        JTtelephone.setText(unMedecin.getTelephone());
+        JTpotentiel.setText(unMedecin.getPotentiel());
+        JTspecialite.setText(unMedecin.getSpecialite());
      }
      
       public void viderText() 	
     {  // méthode qui permet de vider les zones de texte 
-      	JTdepotLegal.setText("");
-      	JTnomCommercial.setText("");
-      	JTcomposition.setText("");
-      	JTeffets.setText("");
-      	JTcontreIndication.setText("");
-      	JTprixEchantillon.setText("");
-      	JTcodeFamille.setText("");
-      	JTlibelleFamille.setText("");
+        JTcode.setText("");        
+        JTnom.setText("");
+        JTprenom.setText("");
+        JTadresse.setText("");    
+        JTcp.setText("");
+        JTville.setText("");
+        JTtelephone.setText("");
+        JTpotentiel.setText("");
+        JTspecialite.setText("");
      }
 
 

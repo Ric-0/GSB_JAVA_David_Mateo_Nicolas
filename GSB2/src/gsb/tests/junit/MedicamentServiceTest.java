@@ -19,12 +19,12 @@ public class MedicamentServiceTest {
 	}
 
 	@Test
-	public final void testRechercherDepExistant() {
-		assertNull("Le dépot légal ne correspend à RIEN.", MedicamentService.rechercher("blbl"));
-	}
-	@Test
 	public final void testRechercherDepNull() {
 		assertNull("Le dépot légal doit être renseigné.", MedicamentService.rechercher(null));
 	}
+	public final void testRechercherDepExistant() {
+		assertNull("Le dépot légal ne correspend à RIEN.", MedicamentService.rechercher("blbl"));
+	}
+	
 
 }

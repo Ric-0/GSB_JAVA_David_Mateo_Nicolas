@@ -21,34 +21,30 @@ public class StockerServiceTest extends TestCase {
 
 	@Test
 	public final void testAjoutEchantQteNull() {
-		assertEquals(0,StockerService.ajoutEchant(null, "PL56", "IBU20"));
+		assertNull("La quantité doit être renseignée.", StockerService.ajoutEchant(0, "PL56", "IBU20"));
 	}
 	
 	public final void testAjoutEchantQteSup() {
-		assertEquals(0,StockerService.ajoutEchant("-1", "PL56", "IBU20"));
+		assertEquals("Le dépot légal doit être renseigné.", 0, StockerService.ajoutEchant(-1, "PL56", "IBU20"));
 	}
 	
 	public final void testAjoutEchantMatriNull() {
-		assertEquals(0,StockerService.ajoutEchant("2", null, "IBU20"));
+		assertNull("Le amtricule doit être renseigné.", StockerService.ajoutEchant(2, null, "IBU20"));
 	}
 
 	public final void testAjoutEchantDepNull() {
-		assertEquals(0,StockerService.ajoutEchant("2", "PL56", null));
+		assertNull("Le dépot légal doit être renseigné.", StockerService.ajoutEchant(2, "PL56", null));
 	}
 	
 	public final void testAjoutEchantDepExistant() {
-		assertEquals(0, StockerService.ajoutEchant("1", "PL56", "blbl"));
+		assertNull("Le dépot légal ne correspend à RIEN.", StockerService.ajoutEchant(1, "PL56", "blbl"));
 	}
 	
 	public final void testAjoutEchantMatriExistant() {
-		assertEquals(0, StockerService.ajoutEchant("1", "blbl", "IBU20"));
-	}
-	public final void testQteNonNulle() {
-		assertEquals(0, StockerService.ajoutEchant("0", "PL56", "IBU20"));
+		assertNull("Le dépot légal ne correspend à RIEN.", StockerService.ajoutEchant(1, "blbl", "IBU20"));
 	}
 	
 	public final void testRetournerLesStocksSpecifiquesMatriNull() {
-		assertNull(StockerService.retournerLesStocksSpecifiques(null));
+		assertNull("Le matricule doit être renseigné.",StockerService.retournerLesStocksSpecifiques(null));
 	}
-	
 }

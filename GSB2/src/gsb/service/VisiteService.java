@@ -32,6 +32,7 @@ public class VisiteService {
 
 		}
 		return LaVisite;
+		
 
 	}
 
@@ -66,12 +67,16 @@ public class VisiteService {
 				throw new Exception("Donnée obligatoire :Le code du medecin ne peut être vide");
 
 			}
+			
+			LeMedecin=MedecinService.rechercherMedecin(LecodeMedecin);
+
 		} catch (Exception e) {
 
 			System.out.println(e.getMessage());
 
 		}
-
+		
+		
 		return LeMedecin;
 	}
 
@@ -81,7 +86,21 @@ public class VisiteService {
 		int resultat = 0;
 		Visite UneVisite;
 
-		// Creer l'expression régulière pour la date
+		
+		try {
+
+			if (UneReference == null || UneDate == null || UnCommentaire == null || codeMedecin == null || MatriculeVisiteur == null) {
+
+				throw new Exception("Données obligatoires :Une Reference, Une Date, Un Commentaire, Le code du Medecin, le Matricule du Visiteur ");
+			}
+
+			if (VisiteDao.rechercher(UneReference) != null) {
+
+				throw new Exception("La référence " + UneReference + " existe déjà");
+
+			}
+			
+			// Creer l'expression régulière pour la date
 
 		String regex = "^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$";
 
@@ -90,19 +109,6 @@ public class VisiteService {
 
 		// fin de la création de l'expression régulière
 
-		try {
-
-			if (UneReference == null || UneDate == null || UnCommentaire == null || codeMedecin == null || MatriculeVisiteur == null) {
-
-				throw new Exception(
-						"Données obligatoires :Une Reference, Une Date, Un Commentaire, Le code du Medecin, le Matricule du Visiteur ");
-			}
-
-			if (VisiteDao.rechercher(UneReference) != null) {
-
-				throw new Exception("La référence " + UneReference + " existe déjà");
-
-			}
 
 			if (!matcher.matches()) {
 
@@ -122,8 +128,8 @@ public class VisiteService {
 
 			}
 
-			UneVisite = new Visite(UneReference, UneDate, UnCommentaire, MedecinDao.rechercher(codeMedecin),
-					VisiteurDao.rechercher(MatriculeVisiteur));
+			UneVisite = new Visite(UneReference, UneDate, UnCommentaire, MedecinService.rechercherMedecin(codeMedecin),
+					rechercherVisiteur(MatriculeVisiteur));
 			resultat = VisiteDao.creer(UneVisite);
 
 		} catch (Exception e) {

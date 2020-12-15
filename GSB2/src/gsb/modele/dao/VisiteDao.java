@@ -33,6 +33,7 @@ public class VisiteDao {
 	}
 	
 	
+	
 	public static int creer(Visite uneVisite){
 		
 	     String reference=uneVisite.getReference();
@@ -46,9 +47,8 @@ public class VisiteDao {
 		
 		try{
 			
-			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO VISITE VALUES('"+reference+"','"+date+"','"+commentaire+"','"+matricule+"','"+codeMed+"')");
+			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO VISITE VALUES('"+reference+"','"+date+"',\""+commentaire+"\",'"+matricule+"','"+codeMed+"')");
 			ConnexionMySql.fermerConnexionBd();
-			ResultatReq = 1;
 			
 		}catch(Exception e){
 			

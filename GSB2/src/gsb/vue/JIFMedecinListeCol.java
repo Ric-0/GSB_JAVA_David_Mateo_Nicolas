@@ -1,3 +1,9 @@
+/*
+ * Créé le 3 mars 2015
+ *
+ * TODO Pour changer le modèle de ce fichier généré, allez à :
+ * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ */
 package gsb.vue;
 
 import gsb.modele.Medecin;
@@ -17,12 +23,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-
+/**
+ * @author Isabelle
+ * 3 mars 2015
+ * TODO Pour changer le modèle de ce commentaire de type généré, allez à :
+ * Fenêtre - Préférences - Java - Style de code - Modèles de code
+ */
 public class JIFMedecinListeCol extends JInternalFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
 	private ArrayList<Medecin> lesMedecins;
+
 
 	protected JPanel p;
 	protected JScrollPane scrollPane;
@@ -35,12 +47,14 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
 
 		fenetreContainer = uneFenetreContainer;
 		// récupération des données Medecin dans la collection
-		lesMedecins = MedecinDao.retournerCollectionDesMedecins();
+		lesMedecins = MedecinDao.retournerLesMedecins();
 
 		int nbLignes = lesMedecins.size();
 
 		JTable table;
 		
+		
+
 		p = new JPanel(); // panneau principal de la fenêtre
 
 		int i=0;
@@ -51,7 +65,7 @@ public class JIFMedecinListeCol extends JInternalFrame implements ActionListener
 			data[i][2] = unMedecin.getPrenom();
 			data[i][3] = unMedecin.getUneLocalite().getVille() ;
 			i++;
-		}
+			}
 		String[] columnNames = {"Code", "Nom","Prenom","Ville"};
 		table = new JTable(data, columnNames);
 		
