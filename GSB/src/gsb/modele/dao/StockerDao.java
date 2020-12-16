@@ -3,9 +3,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import gsb.modele.Stocker;
+import gsb.modele.Visiteur;
 import gsb.modele.dao.ConnexionMySql;
 
-public class StockerDao {
+public class stockerDao {
 
 
 	public static int ajoutEchant(Stocker unStock) {
@@ -27,7 +28,9 @@ public class StockerDao {
 public static ArrayList<Stocker> retournerLesStocks(){
 	
 	ArrayList<Stocker> LesStocks;
-	LesStocks=new ArrayList<Stocker>();	
+	LesStocks=new ArrayList<Stocker>();
+	int cpt =0;
+	
 	try{
 		
 		ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM STOCKER");
@@ -50,32 +53,6 @@ public static ArrayList<Stocker> retournerLesStocks(){
 	
 }
 
-
-public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule) {
-	
-	ArrayList<Stocker> LesStocks;
-	LesStocks=new ArrayList<Stocker>();
-	
-	try{
-		
-		ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM STOCKER WHERE MATRICULE='"+matricule+"'");
-		
-		while(ResultatReq.next()){
-				
-			String unMatricule = ResultatReq.getString(2);
-			String unDepotLegal = ResultatReq.getString(3);
-		    Stocker UnStock=new Stocker(ResultatReq.getInt(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
-			LesStocks.add(UnStock);
-
-		}
-		
-	}catch(Exception e){
-		System.out.println(" Erreur lors de la requête : SELECT * FROM STOCKER");	
-	}
-	
-	return LesStocks;
-	
-}
 }
 
 
