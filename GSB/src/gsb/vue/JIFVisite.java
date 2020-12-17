@@ -2,10 +2,13 @@ package gsb.vue;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
+import gsb.modele.Offrir;
 import gsb.modele.Visite;
+import gsb.service.OffrirService;
 
 public class JIFVisite extends JInternalFrame {
 
@@ -32,7 +35,28 @@ public class JIFVisite extends JInternalFrame {
 	protected JTextField JTcodeMed;
 	protected JTextField JTcom;
 	
+	protected JPanel pOffre;
+	
+	protected JLabel JLdepLeg;
+	protected JLabel JLqte;
+	protected JLabel JLmed1;
+	protected JLabel JLmed2;
+	protected JTextField JTdl1;
+	protected JTextField JTqte1;
+	protected JTextField JTdl2;
+	protected JTextField JTqte2;
+	
+	protected String dl1;
+	protected String qte1;
+	protected String dl2;
+	protected String qte2;
+	
 	public JIFVisite() {
+		dl1 = null;
+		qte1 = null;
+		dl2 = null;
+		qte2 = null;
+		
 		p = new JPanel();
 		pTexte1 = new JPanel(new GridLayout(7,2));
 		pTexte2 = new JPanel(new GridLayout(3,3));
@@ -74,6 +98,30 @@ public class JIFVisite extends JInternalFrame {
 		
 		p.add(pTexte2);
 		
+		pOffre = new JPanel(new GridLayout(3,3));
+		
+		pOffre.add(JLvide);
+		JLdepLeg = new JLabel("Depot legal");
+		pOffre.add(JLdepLeg);
+		JLqte = new JLabel("Quantité offerte");
+		pOffre.add(JLqte);
+		
+		JLmed1 = new JLabel("Medicament 1");
+		pOffre.add(JLmed1);
+		JTdl1 = new JTextField();
+		pOffre.add(JTdl1);
+		JTqte1 = new JTextField();
+		pOffre.add(JTqte1);
+		
+		JLmed2 = new JLabel("Medicament 2");
+		pOffre.add(JLmed2);
+		JTdl2 = new JTextField();
+		pOffre.add(JTdl2);
+		JTqte2 = new JTextField();
+		pOffre.add(JTqte2);
+		
+		p.add(pOffre);
+		
 		p.add(pBoutons);
 		
 		p.add(pBoutonInfo);
@@ -88,6 +136,20 @@ public class JIFVisite extends JInternalFrame {
 		JTmat.setText(uneVisite.getUnVisiteur().getMatricule());
 		JTcodeMed.setText(uneVisite.getUnMedecin().getCodeMed());
 		JTcom.setText(uneVisite.getCommentaire());
+		ArrayList<Offrir> listeOffres = OffrirService.rechercherOffreViaVisite(JTref.getText());
+		System.out.println(listeOffres.size());
+		if(listeOffres.size() != 0) {
+			JTdl1.setText(listeOffres.get(0).getUnMedicament().getDepotLegal());
+			dl1 = JTdl1.getText();
+			JTqte1.setText(String.valueOf(listeOffres.get(0).getQteOfferte()));
+			qte1 = ""+JTqte1.getText()+"";
+		}
+		if(listeOffres.size() == 2) {
+			JTdl2.setText(listeOffres.get(1).getUnMedicament().getDepotLegal());
+			dl2 = JTdl2.getText();
+			JTqte2.setText(String.valueOf(listeOffres.get(1).getQteOfferte()));
+			qte2 = ""+JTqte2.getText()+"";
+		}
 		
 	}
 	

@@ -10,7 +10,6 @@ import gsb.modele.Medecin;
 
 import java.awt.Container;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;

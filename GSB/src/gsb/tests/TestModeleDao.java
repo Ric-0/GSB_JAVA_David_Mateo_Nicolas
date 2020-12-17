@@ -9,9 +9,9 @@ import gsb.modele.Visiteur;
 import gsb.modele.dao.LocaliteDao;
 import gsb.modele.dao.MedecinDao;
 import gsb.modele.dao.MedicamentDao;
+import gsb.modele.dao.StockerDao;
 import gsb.modele.dao.VisiteDao;
 import gsb.modele.dao.VisiteurDao;
-import gsb.modele.dao.StockerDao;
 import gsb.utils.AffichageModele;
 
 public class TestModeleDao {
