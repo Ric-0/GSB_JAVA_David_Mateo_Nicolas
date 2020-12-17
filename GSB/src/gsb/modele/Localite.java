@@ -30,6 +30,9 @@ public class Localite {
 	}
 	
 	public String getVille(){
+		
+		
+		
 		return this.ville;
 		
 	}

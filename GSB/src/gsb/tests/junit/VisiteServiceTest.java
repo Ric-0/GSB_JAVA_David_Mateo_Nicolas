@@ -65,7 +65,7 @@ public class VisiteServiceTest {
 	@Test
 	public final void testCreerVisiteCodeMedNull() {
 		
-		assertEquals("Resultat insertion : ",0,VisiteService.creerVisite("v0054","08/10/2020","RAS",null,VisiteurDao.rechercher("a131").getMatricule()));
+		assertEquals(0,VisiteService.creerVisite("v0054","08/10/2020","RAS",null,VisiteurDao.rechercher("a131").getMatricule()));
 	
 	}
 	
@@ -79,7 +79,7 @@ public class VisiteServiceTest {
 	@Test
 	public final void testCreerVisiteRefExiste() {
 		
-		assertEquals("Resultat insertion : ",0,VisiteService.creerVisite("v0001","08/10/2020","RAS","m001",VisiteurDao.rechercher("a131").getMatricule()));
+		assertEquals("Resultat insertion : ",0,VisiteService.creerVisite("v0001","08/10/2020","RAS","m001",VisiteService.rechercherVisiteur("a131").getMatricule()));
 			
 	}
 	
@@ -101,6 +101,31 @@ public class VisiteServiceTest {
 		
 		assertEquals("Resultat insertion : ",0,VisiteService.creerVisite("v0054","08/10/2020","RAS","m001","blblbl"));
 		
+	}
+	
+	@Test
+	public final void testModifierRefNull() {
+		assertEquals("Resultat insertion : ",0,VisiteService.modifierVisite(null,"08/10/2020","RAS","m001","blblbl"));
+	}
+	
+	@Test
+	public final void testModifierDateNull() {
+		assertEquals("Resultat insertion : ",0,VisiteService.modifierVisite("v0054",null,"RAS","m001","blblbl"));
+	}
+	
+	@Test
+	public final void testModifierCommentaireNull() {
+		assertEquals("Resultat insertion : ",0,VisiteService.modifierVisite("v0054","08/10/2020",null,"m001","blblbl"));
+	}
+	
+	@Test
+	public final void testModifierCodeMedecinNull() {
+		assertEquals("Resultat insertion : ",0,VisiteService.modifierVisite("v0054","08/10/2020","RAS",null,"blblbl"));
+	}
+	
+	@Test
+	public final void testModifierCodeVisiteurNull() {
+		assertEquals("Resultat insertion : ",0,VisiteService.modifierVisite("v0054","08/10/2020","RAS","m001",null));
 	}
 
 }

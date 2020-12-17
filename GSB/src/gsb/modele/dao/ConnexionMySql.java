@@ -31,16 +31,17 @@ public class ConnexionMySql { // DAO = Data Access Object
 	 * pour utiliser cette méthode écrire : ConnexionMySql.connecterBd()
 	 */
 	public static void connecterBd(){
-		//connexion à la base de donnée à partir de jdbc
-		String url = "jdbc:mysql://192.168.43.180:3306/gsbV3"; // url : chaine de connexion
-		// try permet d'essayer de lancer la connexion
-		try {Class.forName("com.mysql.jdbc.Driver"); 
-			cnx = DriverManager.getConnection(url,"admindb","password"); 
-		} 
-		// si la connexion echoue un message d'erreur est affiché
+        //connexion à la base de donnée à partir de jdbc
+        String url = "jdbc:mysql://192.168.43.218:3306/gsbV3"; // url : chaine de connexion
+        // try permet d'essayer de lancer la connexion
+        try {Class.forName("com.mysql.jdbc.Driver"); 
+            cnx = DriverManager.getConnection(url,"admindb","password"); 
+            System.out.println("test");
+        } 
+        // si la connexion echoue un message d'erreur est affiché
         catch(Exception e) {  System.out.println("Echec lors de la connexion");  } 
 
-	}
+    }
 	
 	/**
 	 * @param laRequete requête SQL de type SELECT

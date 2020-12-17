@@ -22,7 +22,6 @@ public class MedecinService {
 		return unMedecin;
 	}
 	public int creerMedecin(String UnCodeMed, String UnNom, String UnPrenom, String UneAdresse, String telephone, String UnPotentiel, String UneSpecialite, Localite UneLocalite) {
-		Medecin unMedecin;
 		int result = 0;
 		try {
 			if(UnCodeMed == null || UnNom == null || UnPrenom == null || UneAdresse == null || telephone == null || UnPotentiel == null || UneSpecialite == null || UneLocalite == null) {

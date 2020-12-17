@@ -12,7 +12,7 @@ public class MedicamentService {
 			if (depotLeg == null) {
 				throw new Exception("Le champ ne peut être vide.");
 			}
-			if (VisiteurDao.rechercher(depotLeg) == null) {
+			if (MedicamentDao.rechercher(depotLeg) == null) {
 				throw new Exception("Pas de médicament avec ce dépot légal.");
 			}
 			

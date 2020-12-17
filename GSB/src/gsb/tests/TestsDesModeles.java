@@ -12,7 +12,6 @@ import gsb.utils.AffichageModele;
 public class TestsDesModeles {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Localite LocaliteVisiteur =new Localite("56290","Port-Louis");
 		Localite LocaliteMedecin=new Localite("56570","Locmiquélic");

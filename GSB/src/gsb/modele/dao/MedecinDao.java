@@ -2,7 +2,6 @@ package gsb.modele.dao;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import gsb.modele.Localite;
 import gsb.modele.Medecin;
@@ -89,13 +88,5 @@ public class MedecinDao {
 		return LesMedecins;
 	}
 	
-	public static HashMap<String, Medecin> retournerDictionnaireDdesMedecins() {
-		HashMap<String,Medecin> dicoTest = new HashMap<String,Medecin>();
-		dicoTest = null;
-		return dicoTest;
-	}
-	}
 	
-	
-	
-
+}
