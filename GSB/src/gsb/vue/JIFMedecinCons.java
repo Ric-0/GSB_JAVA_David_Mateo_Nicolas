@@ -40,10 +40,10 @@ public class JIFMedecinCons extends JIFMedecin  implements ActionListener {
         super();
         premier = new JButton("Premier");
         pBoutons.add(premier);
-        suivant = new JButton("Suivant");
-        pBoutons.add(suivant);
         precedent = new JButton("Precedent");
         pBoutons.add(precedent);
+        suivant = new JButton("Suivant");
+        pBoutons.add(suivant);
         dernier = new JButton("Dernier");
         pBoutons.add(dernier);
         // déclaration des sources d'évènements

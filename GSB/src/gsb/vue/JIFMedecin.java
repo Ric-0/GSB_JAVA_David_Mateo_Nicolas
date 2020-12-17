@@ -11,6 +11,7 @@ import gsb.modele.Medecin;
 import java.awt.Container;
 import java.awt.GridLayout;
 
+
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

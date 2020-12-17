@@ -91,6 +91,10 @@ public class Medicament {
 	public float getPrixEchantillon() {
 		return prixEchantillon;
 	}
+	
+	public String getPrixEchantillonString() {
+		return String.valueOf(prixEchantillon);
+	}
 
 
 

@@ -1,57 +1,36 @@
-/*
- * Créé le 23 févr. 2015
- *
- * TODO Pour changer le modèle de ce fichier généré, allez à :
- * Fenêtre - Préférences - Java - Style de code - Modèles de code
- */
 package gsb.vue;
 
 import gsb.modele.Medecin;
 import gsb.modele.dao.MedecinDao;
-import gsb.service.MedecinService;
 
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.event.ListSelectionListener;
 
-/**
- * @author Isabelle 23 févr. 2015 TODO Pour changer le modèle de ce commentaire
- *         de type généré, allez à : Fenêtre - Préférences - Java - Style de
- *         code - Modèles de code
- */
+
 public class JIFMedecinListeDic extends JInternalFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
 	//private ArrayList<Medecin> lesMedecins;
-	private HashMap<String,ArrayList<Medecin>> diccoMedecin;
-
+	private ArrayList<Medecin> ArrayMedecin;
 
 	protected JPanel p;
 	protected JScrollPane scrollPane;
 	protected JPanel pSaisie;
 	protected JTextField JTcodeMedecin;
-	protected JButton JBafficherFiche;
 	protected MenuPrincipal fenetreContainer;
 	protected JTable table;
-
+	
+	
 	public JIFMedecinListeDic(MenuPrincipal uneFenetreContainer) {
 
 		fenetreContainer = uneFenetreContainer;
@@ -59,8 +38,8 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 		//lesMedecins = MedecinDao.retournerCollectionDesMedecins();
 
 		//int nbLignes = lesMedecins.size();
-		diccoMedecin.put("Medecin",MedecinDao.retournerLesMedecins());
-		int nbLignes= diccoMedecin.size();
+		ArrayMedecin = MedecinDao.retournerLesMedecins();
+		int nbLignes= ArrayMedecin.size();
 		
 		p = new JPanel(); // panneau principal de la fenêtre
 
@@ -68,11 +47,11 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 		String[][] data = new String[nbLignes][4] ;
 		//for(Medecin unMedecin : lesMedecins){
 		
-		for (Map.Entry<String,ArrayList<Medecin>> uneEntree : diccoMedecin.entrySet()){
-			data[i][0] = uneEntree.getValue().getCodeMed();
-			data[i][1] = uneEntree.getValue().getNom();
-			data[i][2] = uneEntree.getValue().getPrenom();
-			data[i][3] = uneEntree.getValue().getUneLocalite().getVille() ;
+		for (Medecin uneEntree : ArrayMedecin){
+			data[i][0] = uneEntree.getCodeMed();
+			data[i][1] = uneEntree.getNom();
+			data[i][2] = uneEntree.getPrenom();
+			data[i][3] = uneEntree.getUneLocalite().getVille() ;
 			i++;
 			}
 		String[] columnNames = {"Code", "Nom","Prenom","Ville"};
@@ -86,10 +65,7 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 		pSaisie = new JPanel();
 		JTcodeMedecin = new JTextField(20);
 		JTcodeMedecin.setMaximumSize(JTcodeMedecin.getPreferredSize());
-		JBafficherFiche = new JButton("Afficher Fiche médecin");
-		JBafficherFiche.addActionListener(this); // source d'évenement
-		pSaisie.add(JTcodeMedecin);
-		pSaisie.add(JBafficherFiche);
+
 		p.add(pSaisie);
 		
 		// mise en forme de la fenêtre
@@ -97,21 +73,10 @@ public class JIFMedecinListeDic extends JInternalFrame implements ActionListener
 		contentPane.add(p);
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Object source = arg0.getSource();
-   		if (source == JBafficherFiche){
-   			if (diccoMedecin.containsKey(JTcodeMedecin.getText())){
-   	   			Medecin unMedecin = diccoMedecin.get(JTcodeMedecin.getText());
-   	   			fenetreContainer.ouvrirFenetre(new JIFMedecinFiche(unMedecin));
-   			}
-   		}
-   		if(source == table){
-   			JTcodeMedecin.setText((String)table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()));
-   			
-   		}
-	}
+		// TODO Auto-generated method stub
+		
+	}	
 }

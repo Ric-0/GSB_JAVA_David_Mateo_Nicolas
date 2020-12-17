@@ -31,6 +31,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	protected JMenuBar mbar;
 	protected JMenu mMedecins;
 	protected JMenu mMedicaments;
+	protected JMenu mStock;
 
 	JMenu mVisites;
 
@@ -63,9 +64,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		JMenuItem mE1 = new JMenuItem("Consultation Medicament");
 		mE1.addActionListener(this); // installation d'un écouteur d'action
 		mMedicaments.add(mE1);
-		JMenuItem mE2 = new JMenuItem("Ajout Medicaments");
-		mE2.addActionListener(this);
-		mMedicaments.add(mE2);
+
 
 		mVisites = new JMenu("Visites");
 		JMenuItem mA1 = new JMenuItem("Consultation Visite");
@@ -74,10 +73,19 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		JMenuItem mA2 = new JMenuItem("Ajout Visite");
 		mA2.addActionListener(this);
 		mVisites.add(mA2);
-
+		
+		mStock= new JMenu("Stock");
+		JMenuItem St1= new JMenuItem("Consultation Stock");
+		St1.addActionListener(this);
+		mStock.add(St1);
+		JMenuItem mSt2 = new JMenuItem("Ajout Stock Visiteur");
+		mSt2.addActionListener(this);
+		mStock.add(mSt2);
+		
 		mbar.add(mMedecins);
 		mbar.add(mMedicaments);
 		mbar.add(mVisites);
+		mbar.add(mStock);
 		setJMenuBar(mbar);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,6 +107,18 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 			}
 			else if (ChoixOption.equals("Consultation Visite")) {
 				ouvrirFenetre(new JIFVisiteRecherche(this));
+			}
+			else if (ChoixOption.equals("Consultation Medicament")) {
+				ouvrirFenetre(new JIFMedicamentCons());
+			}
+			else if (ChoixOption.equals("Ajout Visite")) {
+				ouvrirFenetre(new JIFVisiteAjout());
+			}
+			else if(ChoixOption.equals("Consultation Stock")) {
+				ouvrirFenetre(new JIFStockAffi());
+			}
+			else if(ChoixOption.equals("Ajout Stock Visiteur")) {
+				ouvrirFenetre(new JIFStockerAjout());
 			}
 
 		}

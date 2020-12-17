@@ -2,7 +2,6 @@ package gsb.service;
 
 import gsb.modele.Medicament;
 import gsb.modele.dao.MedicamentDao;
-import gsb.modele.dao.VisiteurDao;
 
 public class MedicamentService {
 

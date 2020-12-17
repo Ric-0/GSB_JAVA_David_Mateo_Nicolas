@@ -21,6 +21,10 @@ import gsb.service.VisiteService;
 
 public class JIFVisiteRecherche extends JInternalFrame implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton rechercher;
 	private JPanel p;
 	private JPanel pTexte;
@@ -133,6 +137,4 @@ public class JIFVisiteRecherche extends JInternalFrame implements ActionListener
 			i++;
 		}
 	}
-	
-
 }

@@ -1,45 +1,73 @@
 package gsb.service;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import gsb.modele.Medicament;
 import gsb.modele.Stocker;
 import gsb.modele.Visiteur;
+import gsb.modele.dao.ConnexionMySql;
 import gsb.modele.dao.MedicamentDao;
 import gsb.modele.dao.VisiteurDao;
-import gsb.modele.dao.stockerDao;
 import gsb.modele.dao.StockerDao;
 
 public class StockerService {
 
-	public static int ajoutEchant(int uneqteStock, String matricule, String depotLeg) {
+	public static int ajoutEchant(String uneqteStock, String matricule, String depotLeg) {
 		int verif = 0;
 		try {
-			if (matricule == null || depotLeg == null || uneqteStock == 0) {
+			if (matricule == null) {
 				throw new Exception("Tous les champs doivent être remplis.");
 			}
+			if (uneqteStock == null) {
+				throw new Exception("Tous les champs doivent être remplis.");
+			}
+			if (depotLeg == null) {
+				throw new Exception("Tous les champs doivent être remplis.");
+			}
+			if (uneqteStock == "0") {
+				throw new Exception("La quantité ne peut être nulle.");
+			}
 
-			if (uneqteStock < 0) {
+			if (Integer.parseInt(uneqteStock) < 0) {
+
 				throw new Exception("La quantité doit être > à 0");
 			}
 
-			if (VisiteurDao.rechercher(matricule) != null) {
+			if (VisiteurDao.rechercher(matricule) == null) {
+
 				throw new Exception("Pas de visiteur avec ce matricule.");
 			}
 
-			if (MedicamentDao.rechercher(depotLeg) != null) {
+			if (MedicamentDao.rechercher(depotLeg) == null) {
+
 				throw new Exception("Pas de médicament avec ce dépot légal.");
 			}
 
-			// TODO vérifier que le stock n'existe pas déjà (liaison dépotlégal et
-			// matricule)
+			if (StockerDao.retournerUnStock(matricule, depotLeg) != null) {
 
-			Visiteur visiteur = VisiteurDao.rechercher(matricule);
-			Medicament medicament = MedicamentDao.rechercher(depotLeg);
-			Stocker UnStock = new Stocker(uneqteStock, visiteur, medicament);
-			stockerDao.ajoutEchant(UnStock);
-			verif = 1;
+				ResultSet ResultatReq = ConnexionMySql.execReqSelection(
+						"SELECT * FROM STOCKER WHERE MATRICULE='" + matricule + "' AND DEPOTLEGAL ='" + depotLeg + "'");
 
+				while (ResultatReq.next()) {
+
+					int x = (ResultatReq.getInt(1));
+
+					uneqteStock = String.valueOf(Integer.parseInt(uneqteStock) + x);
+
+					ConnexionMySql.execReqMaj("UPDATE STOCKER SET QTESTOCK = '"+ uneqteStock+"' WHERE MATRICULE= '" + matricule
+							+ "' AND DEPOTLEGAL = '" + depotLeg + "'");
+
+				}
+			} else {
+
+				Visiteur visiteur = VisiteurDao.rechercher(matricule);
+				Medicament medicament = MedicamentDao.rechercher(depotLeg);
+				Stocker UnStock = new Stocker(uneqteStock, visiteur, medicament);
+				StockerDao.ajoutEchant(UnStock);
+				verif = 1;
+
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -53,7 +81,7 @@ public class StockerService {
 			if (VisiteService.rechercherVisiteur(matricule) == null) {
 				throw new Exception("Le visiteur n'existe pas.");
 			}
-			lesStocks = stockerDao.retournerLesStocksSpecifiques(matricule);
+			lesStocks = StockerDao.retournerLesStocksSpecifiques(matricule);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

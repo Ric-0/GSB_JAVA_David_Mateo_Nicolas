@@ -3,16 +3,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import gsb.modele.Stocker;
-import gsb.modele.Visiteur;
 import gsb.modele.dao.ConnexionMySql;
 
-public class stockerDao {
+public class StockerDao {
 
 
 	public static int ajoutEchant(Stocker unStock) {
 		String matricule=unStock.getUnVisiteur().getMatricule();
 		String medDepotLegal=unStock.getUnMedicament().getDepotLegal();
-		int qte= unStock.getQteStock();
+		String qte= unStock.getQteStock();
 		int ResultatReq=0;
 		try{
 			ResultatReq=ConnexionMySql.execReqMaj("INSERT INTO STOCKER VALUES('"+qte+"','"+matricule+"','"+medDepotLegal+"')");
@@ -24,13 +23,32 @@ public class stockerDao {
 		return ResultatReq;
 	}
 
+	
+	public static String retournerUnStock(String matricule, String depotLeg) {
+		String stock = null;
+
+		try {
+
+			ResultSet ResultatReq = ConnexionMySql.execReqSelection(
+					"SELECT QTESTOCK FROM STOCKER WHERE MATRICULE ='" + matricule + "' AND DEPOTLEGAL = '" + depotLeg + "'");
+
+			while (ResultatReq.next()) {
+				stock = ResultatReq.getString(1);
+			}
+
+		} catch (Exception e) {
+			System.out.println(" Erreur lors de la requête : SELECT * FROM STOCKER");
+		}
+
+		return stock;
+	}
+	
+	
 
 public static ArrayList<Stocker> retournerLesStocks(){
 	
 	ArrayList<Stocker> LesStocks;
-	LesStocks=new ArrayList<Stocker>();
-	int cpt =0;
-	
+	LesStocks=new ArrayList<Stocker>();	
 	try{
 		
 		ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM STOCKER");
@@ -40,7 +58,7 @@ public static ArrayList<Stocker> retournerLesStocks(){
 			
 			String unMatricule = ResultatReq.getString(2);
 			String unDepotLegal = ResultatReq.getString(3);
-		    Stocker UnStock=new Stocker(ResultatReq.getInt(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
+		    Stocker UnStock=new Stocker(ResultatReq.getString(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
 			LesStocks.add(UnStock);
 
 		}
@@ -53,6 +71,32 @@ public static ArrayList<Stocker> retournerLesStocks(){
 	
 }
 
+
+public static ArrayList<Stocker> retournerLesStocksSpecifiques(String matricule) {
+	
+	ArrayList<Stocker> LesStocks;
+	LesStocks=new ArrayList<Stocker>();
+	
+	try{
+		
+		ResultSet ResultatReq=ConnexionMySql.execReqSelection("SELECT * FROM STOCKER WHERE MATRICULE='"+matricule+"'");
+		
+		while(ResultatReq.next()){
+				
+			String unMatricule = ResultatReq.getString(2);
+			String unDepotLegal = ResultatReq.getString(3);
+		    Stocker UnStock=new Stocker(ResultatReq.getString(1), VisiteurDao.rechercher(unMatricule), MedicamentDao.rechercher(unDepotLegal));
+			LesStocks.add(UnStock);
+
+		}
+		
+	}catch(Exception e){
+		System.out.println(" Erreur lors de la requête : SELECT * FROM STOCKER");	
+	}
+	
+	return LesStocks;
+	
+}
 }
 
 
